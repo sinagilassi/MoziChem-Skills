@@ -1,0 +1,11 @@
+[project]
+name = "mozichem-skills"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pythermodb>=1.13.6",
+    "pythermodb-settings>=0.2.12",
+    "rich>=15.0.0",
+]
