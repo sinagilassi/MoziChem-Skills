@@ -1,7 +1,6 @@
 # import libs
 from typing import Any, Dict, List, Optional
 import logging
-from typing import Dict, Any, List
 from rich import print
 import pyThermoDB as ptdb
 from pyThermoDB.core import TableData, TableEquation
@@ -138,6 +137,23 @@ def check_yaml_reference(
                     report["table_types"][table_name] = "data"
                 elif isinstance(table_obj, TableEquation):
                     report["table_types"][table_name] = "equation"
+                elif isinstance(table_obj, dict):
+                    table_type = table_obj.get("table_type")
+                    if table_type == "data":
+                        report["table_types"][table_name] = "data"
+                    elif table_type in {"equation", "equations"}:
+                        report["table_types"][table_name] = "equation"
+                    elif table_type:
+                        report["table_types"][table_name] = str(table_type)
+                    elif table_obj.get("DATA") or table_obj.get("data"):
+                        report["table_types"][table_name] = "data"
+                    elif table_obj.get("EQUATIONS") or table_obj.get("equations"):
+                        report["table_types"][table_name] = "equation"
+                    else:
+                        report["table_types"][table_name] = "dict"
+                        report["errors"].append(
+                            f"Could not infer table type for {table_name} from table dictionary."
+                        )
                 else:
                     report["table_types"][table_name] = type(
                         table_obj).__name__
