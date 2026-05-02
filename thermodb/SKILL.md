@@ -1,5 +1,5 @@
 ---
-name: thermodb-reference-maker
+name: pythermodb-reference-maker
 description: Extract thermodynamic tables and correlations from references (CSV, PDF, images, or text) and convert them into the project's structured YAML schema. Supports data tables and equation-based correlations (e.g., Cp, vapor pressure, density, enthalpy of vaporization), including coefficient parsing and transformation into executable project notation (parms, args, res). Trigger when working with thermodynamic tables, coefficients, correlations, or YAML formatting. Ensures unit-consistent, schema-compliant, and solver-ready thermodynamic definitions for downstream modeling tools.
 ---
 
