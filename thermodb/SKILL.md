@@ -15,6 +15,29 @@ It supports:
 - multi-equation systems
 - optional integral and derivative expressions
 
+## Step 0: Task interpretation
+
+Before processing:
+
+1. Identify input type:
+  - CSV
+  - PDF/image
+  - raw text
+
+2. Identify table type:
+  - data table → constants only
+  - equation table → coefficients + formula
+
+3. Identify complexity:
+  - single equation
+  - multiple equations
+  - mixed patterns
+
+4. Check for:
+  - scaled coefficients
+  - missing metadata columns
+  - special-case rows
+
 ## Step 1: Classify table type
 
 ### Data table

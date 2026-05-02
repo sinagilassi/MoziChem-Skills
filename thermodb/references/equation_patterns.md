@@ -1,5 +1,51 @@
 # Equation patterns
 
+## Mathematical operation rule
+
+All executable equation blocks MUST use only Python’s built-in `math` module for mathematical operations.
+
+Rules:
+
+- Any function from the `math` module is allowed.
+- Standard Python arithmetic operators are allowed: `+`, `-`, `*`, `/`, `**`.
+- All expressions must be scalar (no vectorized operations).
+
+Strictly not allowed:
+
+- `numpy`
+- `scipy`
+- `sympy`
+- `pandas`
+- any third-party scientific or numerical library
+
+Additional constraints:
+
+- Do not use aliases such as `np.exp` or `sp.log`.
+- Do not import or reference external modules inside equation blocks.
+- If a required mathematical function is not available in `math`, do NOT substitute from another library — instead, flag the limitation in notes.
+
+## Core transformation principle
+
+All equations MUST be transformed into executable YAML using:
+
+- parms[...] → coefficients
+- args[...] → variables
+- res[...] → outputs
+
+This transformation is mandatory and defines the project’s computational model.
+
+## Ambiguity handling
+
+If the source is incomplete:
+
+- Missing coefficients → do not fabricate values
+- Missing equation → return partial structure with notes
+- Unclear scaling → flag explicitly in notes
+
+Always prefer:
+
+- correctness over completeness
+
 ## Vapor pressure pattern
 
 Source form:
