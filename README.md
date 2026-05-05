@@ -37,6 +37,10 @@ Supported inputs include:
 - `pythermodb-reference-maker/references/`
 - `pythermodb-reference-maker/scripts/`
 
+## 📄 License
+
+This project is licensed under the Apache License 2.0.
+
 ## ❓ FAQ
 
 For any question, contact me on [LinkedIn](https://www.linkedin.com/in/sina-gilassi/)
