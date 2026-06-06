@@ -172,6 +172,12 @@ If the source or project template includes integral or derivative forms, keep al
   - `Name`
   - `Formula`
   - `State`
+- For `State`, use the project default state codes unless the user explicitly requests another format:
+  - `g` = gas
+  - `l` = liquid
+  - `s` = solid
+  - `aq` = aqueous
+- If the user wants expanded labels, uppercase labels, source-faithful labels, or another state format, they must state that in the prompt.
 
 ## Step 7: UNIT and CONVERSION rules
 
@@ -213,6 +219,7 @@ Before finalizing:
 - symbols, units, and values align exactly
 - scaling is handled correctly
 - formulas are normalized to project style
+- state values use the default project codes (`g`, `l`, `s`, `aq`) unless another format was explicitly requested
 - no guessed coefficients are presented as exact
 
 ## Output format
@@ -228,6 +235,7 @@ Return:
 - Do not drop columns required by the project schema.
 - Do not mix data-table and equation-table formats.
 - Do not ignore coefficient scaling shown in the source.
+- Do not expand or change `State` values away from `g`, `l`, `s`, or `aq` unless the user explicitly requests a different state format.
 
 ## Definition of done
 
